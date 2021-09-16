@@ -42,6 +42,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.03), loss="mse")
 print(model.summary())
 
 # 训练模型
+
 model.fit(X, Y, epochs=5000)
 
 # 做出预测

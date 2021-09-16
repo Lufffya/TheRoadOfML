@@ -68,12 +68,11 @@ model.add(tf.keras.layers.Dense(64, activation="relu"))
 model.add(tf.keras.layers.Dense(32, activation="relu"))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
-model.compile(tf.keras.optimizers.Adam(learning_rate=0.0001),
-              loss="mse", metrics=["accuracy"])
+model.compile(tf.keras.optimizers.Adam(learning_rate=0.0001), loss="mse", metrics=["accuracy"])
 
-modelInfo = model.fit(train_X, train_Y, epochs=500)
+model_info = model.fit(train_X, train_Y, epochs=500)
 
-plt.plot(modelInfo.epoch, modelInfo.history.get("loss"))
+plt.plot(model_info.epoch, model_info.history.get("loss"))
 plt.show()
 
 # model.evaluate(evel_X,evel_Y,batch_size=264)

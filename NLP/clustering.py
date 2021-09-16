@@ -3,14 +3,12 @@
 # 使用 bert4keras python包进行词向量提取
 #
 
-import os
+import xlwt
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
 from sklearn.cluster import KMeans
-import xlwt
-from bert4keras.models import build_transformer_model
 from bert4keras.tokenizers import Tokenizer
+from bert4keras.models import build_transformer_model
 
 # bert模型超参数配置文件
 config_path = 'Models\\Pretraining_Bert_EN_Uncased_L-12_H-768_A-12_Google-Research\\bert_config.json'
@@ -37,7 +35,7 @@ train_data = np.array(train_data)
 # 获取所有词句的句向量
 # 句向量：表示词在多维空间中的位置,包含词的特征
 train_Data_Embedding = []
-for index, review in tqdm(enumerate(train_data)):
+for index, review in enumerate(train_data):
     # 获取词句对应的词库索引
     token_ids, segment_ids = tokenizer.encode(
         review[0], maxlen=max_seq_length+2)
